@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS egc_transactions (
     account_id2 INTEGER UNSIGNED,
     type ENUM('add', 'remove', 'transfer', 'set'),
     value FLOAT8,
-    comment VARCHAR(128),
+    comment VARCHAR(256),
     FOREIGN KEY (account_id1) REFERENCES egc_accounts(id),
     -- FOREIGN KEY (account_id2) REFERENCES egc_accounts(id),   -- commented out because target account can be null 
 	INDEX(timestamp)
@@ -217,7 +217,7 @@ CREATE PROCEDURE Egc_Log(
     name2 VARCHAR(24) CHARACTER SET latin1,
     type ENUM('add', 'remove', 'transfer', 'set'),
     value FLOAT8,
-    comment VARCHAR(128)
+    comment VARCHAR(256)
 ) COMMENT 'Log an Egc transaction'
 BEGIN
 	DECLARE EXIT HANDLER FOR SQLEXCEPTION BEGIN ROLLBACK; END;
