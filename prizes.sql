@@ -26,7 +26,7 @@ CREATE PROCEDURE Prize_GetPrizes(
 	arena VARCHAR(24) CHARACTER SET latin1
 ) COMMENT 'Show the name, cost, description, and date for prizes available in the given arena'
 BEGIN
-	SELECT name, cost, description, data FROM prize_prizes WHERE prize_prizes.arena = arena ORDER BY name DESC;
+	SELECT name, cost, description, data FROM prize_prizes WHERE prize_prizes.arena = arena ORDER BY name ASC;
 END$$
 
 CREATE PROCEDURE Prize_CreatePrize(
